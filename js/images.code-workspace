@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "images",
+			"path": "../../../Downloads/Telegram Desktop/images"
+		},
+		{
+			"name": "Books",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Books",
+		"liveServer.settings.port": 5501
+	}
+}
