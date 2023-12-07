@@ -1053,7 +1053,15 @@ function render(array, elSearchInput) {
 		strongYearElement.textContent = 'Year : '
 		yearWrapperLiElement.append(strongYearElement,yearElement);
 		
-		wrapperElement.append(authorWrapperLiElement,countryWrapperLiElement,pagesWrapperLiElement,yearWrapperLiElement,linkElement);
+		const langWrapperLiElement = document.createElement('li');
+		const langELement = document.createElement('span');
+		langELement.classList.add('lang');
+		langELement.textContent = item.language;
+		const strongLangElement = document.createElement('strong');
+		strongLangElement.textContent = 'Language : ';
+		langWrapperLiElement.append(strongLangElement, langELement)
+		
+		wrapperElement.append(authorWrapperLiElement,countryWrapperLiElement,pagesWrapperLiElement,yearWrapperLiElement,langWrapperLiElement,linkElement);
 		
 		liElement.append(imgElement,titleElement,wrapperElement);
 		elList.appendChild(liElement);
