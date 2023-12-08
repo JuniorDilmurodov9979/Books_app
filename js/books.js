@@ -1076,26 +1076,24 @@ function render(array, elSearchInput) {
 		}
 		
 		
-		
-		
-		const optElement = document.createElement('option');
-		optElement.setAttribute('value', item.language);
-		optElement.textContent = item.language;
-		elChooseSort.appendChild(optElement)
-		
-		
-		// elChooseSort.addEventListener('change', (evt)=> {
-		// 	let newArr = [];
-		// 	if(evt.target.value == optElement.value) {
-		// 		newArr.push(item);
-		// 		console.log(newArr);
-		// 	}
-		// });
-		
-		
+		getUniqueLanguages();
 	})
 }
 render(books);
+
+function getUniqueLanguages() {
+	const languages = new Set();
+	books.forEach(book => languages.add(book.language));
+	return Array.from(languages);
+}
+
+const uniqueLang = getUniqueLanguages();
+uniqueLang.forEach((lang) => {
+	const optElement = document.createElement('option');
+	optElement.setAttribute('value', lang);
+	optElement.textContent = lang;
+	elChooseSort.appendChild(optElement);
+})
 
 elChooseSort.addEventListener('change', (evt) => {
 	const filteredLangBooks = books.filter(item => item.language == evt.target.value);
@@ -1131,3 +1129,15 @@ elSearchInput.addEventListener('keyup', (evt) => {
 	
 	render(finderSearch,searchValue)
 });
+
+// let arrNew = [];
+// let uniqueLang = new Set();
+
+// console.log(uniqueLang);
+
+// let r = uniqueLang.add(books.forEach((item) => item.language));
+// console.log(r);
+// console.log(uniqueLang);
+
+// arrNew.push(uniqueLang);
+// console.log(arrNew);
